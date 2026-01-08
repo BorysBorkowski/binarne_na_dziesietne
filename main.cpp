@@ -1,18 +1,20 @@
 #include <iostream>
+#include <windows.h>
 
 using namespace std;
 
-void poprawne_cyfry(int liczbabi, bool poprawne_cyfry, char cyfra)
+void sprawdzanie_cyfr_czy_bi(int liczbabi, bool& poprawne_cyfry, char cyfra)
 {
-     while(liczbabi != 0)
+     while(liczbabi > 0)
      {
-        liczbabi % 10 = cyfra;
+        cyfra = liczbabi % 10;
         if(cyfra != 1 && cyfra != 0)
         {
             poprawne_cyfry = 1;
+            cout << "liczba musi sie skladac WYLACZNIE z zer i jedynek" << endl;
             break;
         }
-        liczbabi / 10;
+        liczbabi /= 10;
      }
 }
 
@@ -23,7 +25,7 @@ void wczytywanie_przeksztalcanie(int liczbabi, int liczbadec, char cyfra)
     while(liczbabi != 0)
     {
         ++powtorzenia;
-        liczbabi % 10 = cyfra;
+        cyfra = liczbabi % 10;
         liczbabi / 10;
         if(cyfra == 1)
         {
@@ -39,11 +41,6 @@ void wczytywanie_przeksztalcanie(int liczbabi, int liczbadec, char cyfra)
                 }
                 liczbadec += dwojki;
             }
-            if(cyfra != 1 && cyfra != 0)
-            {
-                System("cls");
-                cout << "liczba binarna moze sie skladac WYLACZNIE z zer i jedynek";
-            }
         }
     }
     dwojki = 1;
@@ -54,28 +51,20 @@ int main()
     bool poprawne_cyfry = 0;
     int liczbabi;
     int liczbadec;
-    cout << "napisz liczbe w systemie binarnym (nie wieksza niz 11111111 (8 jedynek)) ktora chcesz przksztalcic na system decymalny" << endl;
+    cout << "napisz liczbe w systemie binarnym (nie wieksza niz 11111111 (8 jedynek)) ktora chcesz przeksztalcic na system decymalny" << endl;
     cin >> liczbabi;
-    System("cls");
-    poprawne_cyfry(liczbabi, poprawne_cyfry, cyfra);
-    if(poprawne_cyfry != 0)
+    system("cls");
+    sprawdzanie_cyfr_czy_bi(liczbabi, poprawne_cyfry, cyfra);
+    if(poprawne_cyfry == 1)
     {
-        if(liczbabi >= 11111111 && poprawne_cyfry = 0)
+        if(liczbabi >= 11111111)
         {
             cout << "liczba nie moze byc wieksza niz 11111111 (8 jedynek)";
-        }
-        if(liczbabi >= 11111111 && poprawne_cyfry = 1)
-        {
-            cout << "liczba nie moze byc wieksza niz 11111111 (8 jedynek), i musi sie skladac WYLACZNIE z zer i jedynek";
-        }
-        if(liczbabi <= 11111111 && poprawne_cyfry = 0)
-        {
-            cout << "liczba musi sie skladac WYLACZNIE z zer i jedynek";
         }
     }
     else
     {
-
+        cout << "djdjdjdjd";
     }
     return 0;
 }
